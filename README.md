@@ -10,7 +10,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### Настройка БД, сбор и обработка данных
+### Сбор и обработка данных
 ```
 psql -U postgres -c "CREATE DATABASE hh_db;" 2>$null
 cd data_collecting
@@ -38,4 +38,11 @@ npm run dev
 ```
 cd backend
 python manage.py runserver
+```
+
+### Просмотр данных в БД
+
+```
+cd backend
+sqlite3 db.sqlite3
 ```
