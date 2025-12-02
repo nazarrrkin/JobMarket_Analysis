@@ -91,8 +91,8 @@ class hh_crawler():
 
 
     def save_to_csv(self):
-        file_exists = os.path.exists('data_collecting/hh_vacancies.csv')
-        with open('data_collecting/hh_vacancies.csv', 'a', newline='', encoding='utf-8') as file:
+        file_exists = os.path.exists('hh_raw_vacancies.csv')
+        with open('hh_raw_vacancies.csv', 'a', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=self.vacancies[0].keys())
             if not file_exists :
                 writer.writeheader()

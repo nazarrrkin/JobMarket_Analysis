@@ -1,4 +1,30 @@
-\copy hh_vacancies_raw from 'file_name.csv' delimiter ',' csv header;
+\encoding UTF8
+
+DROP TABLE IF EXISTS hh_raw_vacancies;
+
+CREATE TABLE hh_vacancies_raw(
+    vacancy_id TEXT,
+    vacancy_name TEXT,
+    professional_roles_id TEXT,
+    professional_roles_name TEXT,
+    area_id TEXT,
+    area_name TEXT,
+    salary_from TEXT,
+    salary_to TEXT,
+    currency TEXT,
+    gross TEXT,
+    requirement TEXT,
+    employer_id TEXT,
+    employer_name TEXT,
+    schedule TEXT,
+    experience TEXT,
+    employment_form TEXT,
+    work_format TEXT,
+    vacancy_publish_date TIMESTAMP,
+    is_archived TEXT
+);
+
+\copy hh_vacancies_raw from 'hh_raw_vacancies.csv' delimiter ',' csv header;
 
 drop table if exists vacancy;
 create table vacancy as
