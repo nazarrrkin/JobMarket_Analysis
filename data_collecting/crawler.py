@@ -80,8 +80,9 @@ class hh_crawler():
         areas_id = self.get_areas_id()
         professional_roles = self.get_professional_roles()
         for region in areas_id.keys():
+            print(f'\nCollecting data for region: {region}')
             for profession in professional_roles.keys():
-                print(f'Собираем ваканси {profession} города {region}')
+                print(f'Processing profession {profession} for city {region}')
                 for page_num in range(0, 20):
                     time.sleep(1/self.requests_per_second)
                     self.vacancy_info(region, profession, page_num)
@@ -90,8 +91,8 @@ class hh_crawler():
 
 
     def save_to_csv(self):
-        file_exists = os.path.exists('hh_vacancies.csv')
-        with open('hh_vacancies.csv', 'a', newline='', encoding='utf-8') as file:
+        file_exists = os.path.exists('data_collecting/hh_vacancies.csv')
+        with open('data_collecting/hh_vacancies.csv', 'a', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=self.vacancies[0].keys())
             if not file_exists :
                 writer.writeheader()
@@ -100,3 +101,4 @@ class hh_crawler():
 if __name__ == '__main__':
     crawler = hh_crawler()
     crawler.get_vacancies()
+    print(f'Data was collected succesfully!')

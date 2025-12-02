@@ -1,2 +1,32 @@
-# JobMarket_Analysis
-A project that includes the stages of collecting, processing, and storing data from a job aggregator, analyzing it, and visualizing it
+# Инструкция по запуску проекта
+
+### Настройки окружения
+
+Создайте/активируйте виртуальное окружение и установите зависимости:
+
+```
+python -m venv .venv
+.venv/Scripts/Activate.ps1
+pip install -r requirements.txt
+```
+
+Для одновременной работы клиента и сервера откройте два терминала.
+
+### Терминал 1: Frontend
+
+Перейдите в папку фронтенда, установите зависимости и запустите режим разработки:
+
+```bash
+cd frontend
+npm i
+npm run dev
+```
+
+### Терминал 2: Backend
+
+Перейдите в папку бэкенда и запустите сервер:
+
+```
+cd backend
+python manage.py runserver
+```
